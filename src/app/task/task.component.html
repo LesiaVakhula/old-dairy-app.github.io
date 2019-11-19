@@ -1,0 +1,12 @@
+<div class="container-task">
+  <div class="task-title" (click)="sendId()">
+    <div class="task-name">
+      {{task.name}}
+    </div>
+    <span>{{ task.comments.length }}</span>
+  </div>
+  <div class="task-delete">
+    <button (click)="deleteTask()">Delete</button>
+  </div>
+</div>
+

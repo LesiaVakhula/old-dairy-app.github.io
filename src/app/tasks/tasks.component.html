@@ -1,0 +1,26 @@
+<div class="item-container">
+  <div class="input-container">
+    <h1>Items</h1>
+    <div class="input-text">
+      <input type="text" placeholder="Type name here..." (keyup)="0" #input>
+      <button class="add-new" 
+        (click)="addTask(input.value); input.value=''" 
+        [disabled]="!input.value" 
+        [ngClass]="{'button-disable' : !input.value}">Add new</button>
+    </div>
+    <div *ngIf="tasks.length">
+      <div *ngFor="let task of tasks">
+        <app-task 
+          [task]="task"
+          (delete)="onDelete($event)"
+          (idTask)="message($event)"
+          ></app-task>
+      </div>
+    </div>
+  </div>
+  <div class="comments-container" *ngIf="!!messageTask && !!tasks.length">
+    <app-comments
+      [messageTask]="messageTask"
+      [index]="index"></app-comments>  
+  </div>
+</div>
